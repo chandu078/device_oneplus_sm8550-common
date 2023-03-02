@@ -33,6 +33,9 @@ on boot
     chown system system /sys/kernel/oplus_display/dynamic_osc_clock
     chown system system /sys/kernel/oplus_display/hbm
     chown system system /sys/kernel/oplus_display/notify_fppress
+    chown system system /sys/kernel/oplus_display/notify_panel_blank
+    chown system system /sys/kernel/oplus_display/power_status
+    chown system system /sys/kernel/oplus_display/panel_id
     chown system system /sys/kernel/oplus_display/panel_serial_number
 
     # Sensors
@@ -58,10 +61,10 @@ on property:ro.boot.prjname=*
 
 on property:sys.boot_completed=1
     # Display
-    copy /vendor/etc/OnePlus_QC_LTM_Commercial_SM8350_2021_01_19.pfm /mnt/vendor/persist/data/pfm/licenses/OnePlus_QC_LTM_Commercial_SM8350_2021_01_19.pfm
+    copy /vendor/etc/Oplus_QC_LTM_SM8550_2022_10_13.pfm /mnt/vendor/persist/data/pfm/licenses/Oplus_QC_LTM_SM8550_2022_10_13.pfm
     copy /vendor/etc/Oplus_QC_LTM_Dev_2020_10_30.pfm /mnt/vendor/persist/data/pfm/licenses/1000-1000-no-exp-1186717196.pfm
     copy /vendor/etc/oplus_Widevine_licenses.pfm /mnt/vendor/persist/data/pfm/licenses/oplus_Widevine_licenses.pfm
-    chown system system /mnt/vendor/persist/data/pfm/licenses/OnePlus_QC_LTM_Commercial_SM8350_2021_01_19.pfm
+    chown system system /mnt/vendor/persist/data/pfm/licenses/Oplus_QC_LTM_SM8550_2022_10_13.pfm
     chown system system /mnt/vendor/persist/data/pfm/licenses/1000-1000-no-exp-1186717196.pfm
     chown system system /mnt/vendor/persist/data/pfm/licenses/oplus_Widevine_licenses.pfm
 
@@ -127,3 +130,19 @@ service oplus_sensor_fb /odm/bin/oplus_sensor_fb
     group system
     class late_start
     oneshot
+
+service vendor.camera-provider /vendor/bin/hw/vendor.qti.camera.provider-service_64
+    override
+    interface aidl android.hardware.camera.provider.ICameraProvider/vendor_qti/0
+    interface vendor.qti.hardware.camera.aon@1.0::IAONService aoncameraservice
+    interface vendor.qti.hardware.camera.aon@1.1::IAONService aoncameraservice
+    interface vendor.qti.hardware.camera.aon@1.2::IAONService aoncameraservice
+    interface vendor.qti.hardware.camera.aon@1.3::IAONService aoncameraservice
+    interface vendor.qti.hardware.camera.postproc@1.0::IPostProcService camerapostprocservice
+    interface vendor.oplus.hardware.cameraextension@1.0::ICameraExtensionService cameraextensionservice
+    class hal
+    user cameraserver
+    group audio camera input drmrpc oem_2907 oem_2912
+    ioprio rt 4
+    capabilities SYS_NICE
+    task_profiles CameraServiceCapacity HighPerformance ProcessCapacityHigh

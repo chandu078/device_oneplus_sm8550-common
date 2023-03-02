@@ -5,7 +5,9 @@
 #
 
 # Reserve
-/dev/block/bootdevice/by-name/oplusreserve1    0660    root    system
+/dev/block/bootdevice/by-name/oplusreserve1               0660   root     system
+/dev/block/bootdevice/by-name/oplusreserve3               0660   root     system
+/dev/block/bootdevice/by-name/oplusreserve5               0660   root     system
 
 # WiFi
 firmware_directories /odm/etc/wifi/
