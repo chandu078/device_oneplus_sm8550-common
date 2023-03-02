@@ -25,6 +25,18 @@ value:2908
 [AID_VENDOR_QTR]
 value:2909
 
+[AID_VENDOR_NXP_STRONGBOX]
+value:2910
+
+[AID_VENDOR_NXP_WEAVER]
+value:2911
+
+[AID_VENDOR_SSGTZD]
+value:2912
+
+[AID_VENDOR_THALES_STRONGBOX]
+value:2913
+
 [AID_VENDOR_LAUNCHER]
 value:2988
 
@@ -162,6 +174,24 @@ mode: 0755
 user: AID_BLUETOOTH
 group: AID_BLUETOOTH
 caps: NET_ADMIN BLOCK_SUSPEND
+
+[vendor/bin/hw/android.hardware.security.keymint-service.strongbox]
+mode: 0755
+user: 2910
+group: AID_SYSTEM
+caps: SYS_ADMIN SYS_NICE
+
+[vendor/bin/hw/android.hardware.security.keymint-service.strongbox-thales]
+mode: 0755
+user: 2913
+group: AID_SYSTEM
+caps: SYS_ADMIN SYS_NICE
+
+[vendor/bin/hw/android.hardware.weaver@1.0-service]
+mode: 0755
+user: 2911
+group: AID_SYSTEM
+caps: SYS_ADMIN SYS_NICE
 
 [vendor/bin/ims_rtp_daemon]
 mode: 0755
