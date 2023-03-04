@@ -500,5 +500,4 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <kernel target-level="7"/>
 </manifest>
