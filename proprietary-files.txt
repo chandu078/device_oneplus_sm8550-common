@@ -1,6 +1,12 @@
 ## All proprietary files from this list, unless pinned and noted otherwise, are
 ## from OnePlus 11 (CPH2447_11_A.07).
 
+# USB
+-vendor/etc/vintf/manifest/android.hardware.usb@1.2-service.xml
+vendor/bin/hw/android.hardware.usb@1.2-service-qti
+vendor/bin/init.qcom.usb.sh
+vendor/etc/init/android.hardware.usb@1.2-service-qti.rc
+
 # ADSPRPC
 odm/lib/rfsa/adsp/aiboost/libQnnHtpV73Skel.so
 odm/lib/rfsa/adsp/aiboost/libaiboostubwc_skel.so
@@ -286,7 +292,7 @@ vendor/lib64/libagmmixer.so
 vendor/lib64/libar-acdb.so
 vendor/lib64/libar-gpr.so
 -vendor/lib64/libar-gsl.so
-vendor/lib64/libar-pal.so
+-vendor/lib64/libar-pal.so
 -vendor/lib64/libats.so
 vendor/lib64/libaudio_log_utils.so
 vendor/lib64/libaudiochargerlistener.so
@@ -2197,7 +2203,6 @@ vendor/lib64/libsystem_health_mon.so
 odm/lib64/vendor.oplus.hardware.appradio@1.0.so
 odm/lib64/vendor.oplus.hardware.ims@1.0.so
 odm/lib64/vendor.oplus.hardware.radio@1.0.so
-system_ext/app/QtiTelephony/QtiTelephony.apk
 system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
 system_ext/etc/permissions/qcrilhook.xml
 system_ext/etc/permissions/qti_libpermissions.xml

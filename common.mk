@@ -52,7 +52,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.audio@7.1-impl \
     android.hardware.audio.effect@7.0-impl \
-    android.hardware.audio.service_64 \
+    android.hardware.audio.service \
     android.hardware.soundtrigger@2.3-impl \
     audio.bluetooth.default \
     audio.primary.kalama \
@@ -102,7 +102,6 @@ PRODUCT_PACKAGES += \
     android.hardware.bluetooth.audio@2.1-impl \
     android.hardware.bluetooth@1.1.vendor \
     com.dsi.ant@1.0.vendor \
-    com.qualcomm.qti.bluetooth_audio@1.0.vendor \
     vendor.qti.hardware.bluetooth_audio@2.1.vendor \
     vendor.qti.hardware.btconfigstore@1.0.vendor \
     vendor.qti.hardware.btconfigstore@2.0.vendor
@@ -145,19 +144,17 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
 # Display
 PRODUCT_PACKAGES += \
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service \
     android.hardware.graphics.common-V1-ndk_platform.vendor \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
-    android.hardware.graphics.mapper-impl-qti-display.xml \
     libsdmcore \
     libsdmutils \
     libqdutils \
     libqdMetaData \
     libqdMetaData.system \
-    libdisplayconfig \
     libgralloc.qti \
     libdisplayconfig.qti \
-    libdisplayconfig.vendor \
-    libdisplayconfig.qti.vendor \
     libqdutils \
     libqservice \
     libfilefinder \
@@ -165,23 +162,17 @@ PRODUCT_PACKAGES += \
     init.qti.display_boot.rc \
     vendor.display.config@1.11.vendor \
     vendor.display.config@2.0.vendor \
-    vendor.qti.hardware.display.allocator-service \
-    vendor.qti.hardware.display.allocator-service.rc \
-    vendor.qti.hardware.display.allocator-service.xml \
     vendor.qti.hardware.display.composer-service \
-    vendor.qti.hardware.display.composer-service.rc \
-    vendor.qti.hardware.display.composer-service.xml \
-    vendor.qti.hardware.display.config.vendor \
+    vendor.qti.hardware.display.allocator-service \
     vendor.qti.hardware.display.config-V1-ndk.vendor \
     vendor.qti.hardware.display.config-V2-ndk.vendor \
     vendor.qti.hardware.display.config-V3-ndk.vendor \
     vendor.qti.hardware.display.config-V4-ndk.vendor \
     vendor.qti.hardware.display.config-V5-ndk.vendor \
     vendor.qti.hardware.display.config-V6-ndk.vendor \
-    vendor.qti.hardware.display.demura-service.rc \
-    vendor.qti.hardware.display.demura-service.xml \
     vendor.qti.hardware.display.demura-service \
     vendor.qti.hardware.display.mapper@2.0.vendor \
+    vendor.qti.hardware.display.mapper@3.0.vendor \
     vendor.qti.hardware.display.mapper@4.0.vendor
 
 PRODUCT_COPY_FILES += \
@@ -348,9 +339,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libjson \
     libqti_vndfwk_detect.vendor \
-    libvndfwk_detect_jni.qti.vendor \
-    libvndfwk_detect_jni.qti_vendor \
-    libqti_vndfwk_detect_vendor
+    libvndfwk_detect_jni.qti.vendor
 
 # QTI service tracker
 PRODUCT_PACKAGES += \
@@ -451,9 +440,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
 
-# USB
-PRODUCT_PACKAGES += \
-    android.hardware.usb@1.2-service-qti
 
 PRODUCT_SOONG_NAMESPACES += \
     vendor/qcom/opensource/usb/etc
@@ -482,11 +468,7 @@ PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
     android.hardware.wifi.hostapd@1.0.vendor \
     hostapd \
-    hostapd.accept \
-    hostapd.deny \
     hostapd_cli \
-    hostapd_default.conf \
-    libqsap_sdk \
     libwpa_client \
     libwifi-hal-ctrl \
     libwifi-hal-qcom \
