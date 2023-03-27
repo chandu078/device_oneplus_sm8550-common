@@ -49,24 +49,12 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.vulkan.deqp.level-2020-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.vulkan.deqp.level.xml
 
 # Audio
+$(call soong_config_set,android_hardware_audio,run_64bit,true)
+# Pick up split makefile
+$(call inherit-product, hardware/qcom-caf/sm8550/audio/configs/kalama/kalama.mk)
 PRODUCT_PACKAGES += \
-    android.hardware.audio@7.1-impl \
-    android.hardware.audio.effect@7.0-impl \
-    android.hardware.audio.service_64 \
-    android.hardware.soundtrigger@2.3-impl \
-    audio.bluetooth.default \
-    audio.primary.kalama \
-    audio.r_submix.default \
-    audio.usb.default \
-    audioadsprpcd \
-    libbatterylistener \
+    android.hardware.audio.service \
     libtinycompress \
-    libqcompostprocbundle \
-    libqcomvisualizer \
-    libqcomvoiceprocessing \
-    libstdc++.vendor \
-    libvolumelistener \
-    sound_trigger.primary.kalama:32 \
     vendor.qti.hardware.pal@1.0.vendor
 
 AUDIO_HAL_DIR := hardware/qcom-caf/sm8550/audio
