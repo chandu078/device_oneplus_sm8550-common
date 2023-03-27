@@ -177,19 +177,19 @@ caps: NET_ADMIN BLOCK_SUSPEND
 
 [vendor/bin/hw/android.hardware.security.keymint-service.strongbox]
 mode: 0755
-user: 2910
+user: AID_VENDOR_NXP_STRONGBOX
 group: AID_SYSTEM
 caps: SYS_ADMIN SYS_NICE
 
 [vendor/bin/hw/android.hardware.security.keymint-service.strongbox-thales]
 mode: 0755
-user: 2913
+user: AID_VENDOR_THALES_STRONGBOX
 group: AID_SYSTEM
 caps: SYS_ADMIN SYS_NICE
 
 [vendor/bin/hw/android.hardware.weaver@1.0-service]
 mode: 0755
-user: 2911
+user: AID_VENDOR_NXP_WEAVER
 group: AID_SYSTEM
 caps: SYS_ADMIN SYS_NICE
 
