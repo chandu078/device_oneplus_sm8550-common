@@ -19,6 +19,10 @@ persist.sys.oplus.region=EU
 ro.vendor.oplus.version=pu
 ro.vendor.oplus.regionmark=EU
 
+# OnePlus
+persist.sys.oplus.region=EU
+ro.vendor.oplus.version=pu
+
 # Radio
 persist.vendor.radio.force_on_dc=true
 persist.vendor.radio.poweron_opt=1

@@ -104,6 +104,7 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.common@1.0.vendor \
+    libcamera2ndk_vendor \
     vendor.qti.hardware.camera.aon@1.3.vendor \
     vendor.qti.hardware.camera.postproc@1.0.vendor
 
@@ -302,6 +303,26 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libOmxCore \
     libstagefrighthw
+
+# OPLUS camera
+$(call inherit-product, vendor/oplus/camera/camera-vendor.mk)
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/oplus_camera_default_grant_permissions_list.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/default-permissions/oplus_camera_default_grant_permissions_list.xml \
+    $(LOCAL_PATH)/configs/oplus_google_lens_config.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/oplus_google_lens_config.xml \
+    $(LOCAL_PATH)/configs/privapp-permissions-oplus.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-permissions-oplus.xml \
+    $(LOCAL_PATH)/configs/hiddenapi-package-oplus-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/hiddenapi-package-oplus-whitelist.xml
+
+# OPLUS framework
+PRODUCT_PACKAGES += \
+    oplus-fwk
+
+PRODUCT_BOOT_JARS += \
+    oplus-fwk
+
+# OPLUS wrapper
+PRODUCT_BOOT_JARS += \
+    oplus-support-wrapper
 
 # Overlays
 $(call inherit-product, hardware/oplus/overlay/qssi/qssi.mk)
